@@ -19,8 +19,8 @@ IP_STIM = '192.168.2.173' # static IP of the stimulus PC
 
 MONITOR = 'Dell' # monitor name
 MONITOR_N = 2
-SIZE = (1680, 1050) # screen resolution (2560, 1440), px 
-WIDTH = 47.5 # monitor screen width, 59.5 cm 
+SIZE = (1536, 864) # (1680, 1050) # screen resolution (2560, 1440), px 
+WIDTH = 70 # 47.5 # monitor screen width, 59.5 cm 
 DISTANCE = 56 # distance between subject and screen, cm 
 
 SCREEN_UNITS = {'spiral':'deg',
@@ -60,6 +60,7 @@ BACKCOL=(-1,-1,-1) # background color
 FIXCOL=(1,1,1) # fixation mark color
 STIMCOL=(1,1,1) # stimuli color
 QUECOL=(1.0,-1,-1) # que color
+CHCOL=(-1,1.,-1) # choose color
 
 FILEPATH = os.path.dirname(os.path.realpath(__file__))+'\\logs'
 if not os.path.exists(FILEPATH):

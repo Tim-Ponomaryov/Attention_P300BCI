@@ -7,7 +7,7 @@ demonstration, EEG, photocell ans marker recording.
 '''
 import multiprocessing
 import logging
-from eeg import EEG
+from record import EEG
 from eyetracker import Eyetracker
 from visual import Visual
 from CONSTANTS import *
@@ -42,11 +42,12 @@ def phtotocell(queue):
     EEG_obj = EEG(queue)
     EEG_obj.photocell_process()
 
-def eyetracking(queue, pipe_in, pipe_out):
-    '''Define what Eyetracking process (see below) should run'''
+# impossible for Python 3
+# def eyetracking(queue, pipe_in, pipe_out):
+#     '''Define what Eyetracking process (see below) should run'''
     
-    Eyetracker_obj = Eyetracker(queue, pipe_in, pipe_out)
-    Eyetracker_obj.eyetracking_process()
+#     Eyetracker_obj = Eyetracker(queue, pipe_in, pipe_out)
+#     Eyetracker_obj.eyetracking_process()
 
 def get_communication_tools():
     '''Create tools to exchange information between processes.
@@ -75,8 +76,8 @@ if __name__ == '__main__':
         queue, pipe_in, pipe_out, lock = get_communication_tools()
         
         # Define processes
-        run_eyetracking = multiprocessing.Process(name='Eyetracking', 
-                target=eyetracking, args=(queue, pipe_in, pipe_out))
+        # run_eyetracking = multiprocessing.Process(name='Eyetracking', 
+        #         target=eyetracking, args=(queue, pipe_in, pipe_out))
         run_eeg = multiprocessing.Process(name='EEG', 
                 target=eeg, args=(queue,))
         run_photocell =  multiprocessing.Process(name='Photocell', 
@@ -87,7 +88,7 @@ if __name__ == '__main__':
                 target=visual, args=(queue, pipe_in, pipe_out, lock,))
 
         # Run processes
-        run_eyetracking.start()
+        # run_eyetracking.start()
         run_eeg.start()
         run_photocell.start()
         run_marker.start()
@@ -96,7 +97,7 @@ if __name__ == '__main__':
     finally:
         
         # End processes
-        run_eyetracking.join()
+        # run_eyetracking.join()
         run_eeg.join()
         run_photocell.join()
         run_marker.join()
