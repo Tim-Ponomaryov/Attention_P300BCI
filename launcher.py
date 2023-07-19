@@ -7,8 +7,8 @@ demonstration, EEG, photocell ans marker recording.
 '''
 import multiprocessing
 import logging
-from record import EEG
-from eyetracker import Eyetracker
+from record import Record
+# from eyetracker import Eyetracker
 from visual import Visual
 from CONSTANTS import *
 
@@ -27,20 +27,20 @@ def visual(queue, pipe_in, pipe_out, lock):
 def marker(queue):
     '''Define what Marker process (see below) should run.'''
     
-    EEG_obj = EEG(queue)
-    EEG_obj.marker_process()
+    Marker = Record(queue)
+    Marker.marker_process()
 
 def eeg(queue):
     '''Define what EEG process (see below) should run.'''
     
-    EEG_obj = EEG(queue)
-    EEG_obj.eeg_process()
+    EEG = Record(queue)
+    EEG.eeg_process()
 
 def phtotocell(queue):
     '''Define what Photocell process (see below) should run.'''
     
-    EEG_obj = EEG(queue)
-    EEG_obj.photocell_process()
+    Photocell = Record(queue)
+    Photocell.photocell_process()
 
 # impossible for Python 3
 # def eyetracking(queue, pipe_in, pipe_out):

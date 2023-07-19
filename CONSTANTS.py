@@ -19,14 +19,14 @@ IP_STIM = '192.168.2.173' # static IP of the stimulus PC
 
 MONITOR = 'Dell' # monitor name
 MONITOR_N = 2
-SIZE = (1536, 864) # (1680, 1050) # screen resolution (2560, 1440), px 
-WIDTH = 70 # 47.5 # monitor screen width, 59.5 cm 
-DISTANCE = 56 # distance between subject and screen, cm 
+SIZE = (1680, 1050) # screen resolution (2560, 1440), px 
+WIDTH = 47.5 # monitor screen width, 59.5 cm 
+DISTANCE = 46 # 56 distance between subject and screen, cm 
 
 SCREEN_UNITS = {'spiral':'deg',
                 'square':'pix'} # coordinates units 
 CENTER = (0,0) # fixation mark coordinates
-PHOTOSENSOR_POS = {'spiral':(25.5, 14.4),
+PHOTOSENSOR_POS = {'spiral':(-27.5, 14.4),
                     'square':(1600, 1000)} # photosensor stimulus coordinates
 PAUSE_POS = (-20.0, 14.4) # pause mark coordinates
 STIM_NAMES = [item for item in u'qwertyuiopasdfghjklzxcvbnm_1234567890!?.,;:"()+=-~[]\/'.upper()] # available stimuli names, unicode
@@ -66,4 +66,4 @@ FILEPATH = os.path.dirname(os.path.realpath(__file__))+'\\logs'
 if not os.path.exists(FILEPATH):
     os.mkdir(FILEPATH)
     
-FILECODE = 'ds_o' # Code of test subject - [initials]_[c]overt/[o]vert
+FILECODE = 'test' # Code of test subject - [initials]_[c]overt/[o]vert

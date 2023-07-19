@@ -1,3 +1,4 @@
+__pycache__
 application/cache
 CONSTANTS.pyc
 eeg.pyc
@@ -7,3 +8,4 @@ launcher.pyc
 visual.pyc
 logs
 images
+*.pyc

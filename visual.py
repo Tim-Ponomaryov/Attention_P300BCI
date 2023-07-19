@@ -1,6 +1,7 @@
 #NOTE: worse image resolution -> faster blinking; impossible to take unicode emoji instead images
 #NOTE: color changes for que and choice replaced by flashing
 #TODO: association of a stimulus and it's position / flash group
+#TODO: size is weird albeit everything regarding monitor and window is similar to python 2 version
 
 import multiprocessing
 import logging
@@ -166,7 +167,7 @@ class Visual:
         self.mouse = Mouse()
         self.fixation_mark = Circle(self.display, radius=0.05 ,edges=32,
                                     pos=CENTER, lineColor=FIXCOL)
-        self.photosensor_stim = Rect(self.display, size = (5.5,5.5), fillColor = FIXCOL,
+        self.photosensor_stim = Rect(self.display, size = (3.5,3.5), fillColor = FIXCOL,
                                      lineWidth = 0, pos = PHOTOSENSOR_POS[self.mode]) # TODO: size for square mode
         self.pause_mark = TextStim(self.display, text='PAUSE', pos=PAUSE_POS,
                                    units=self.screen_units, height=STIM_SIZE[1]) # TODO: height and pos for square mode
@@ -442,7 +443,7 @@ class Visual:
             waitKeys() # pressing any key starts the stimulation
             if timer:
                 st = time.time()
-            self.choose(self.stimuli[0])
+            # self.choose(self.stimuli[0])
             # self.choose(self.stimuli[11])
             # self.choose(self.stimuli[22])
             
